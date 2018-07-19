@@ -22,11 +22,11 @@
 	<h2>File Upload</h2>
 	<div class="w3layouts">
 
-	<p>File Upload widget with multiple file selection, drag&drop support. You can drag & drop files from your desktop on this webpage.</p>
+	<p>{{test}}</p>
 		<div class="photos-upload-view">
-			<form id="upload" action="index.html" method="POST" enctype="multipart/form-data">
+			<form id="upload"  method="POST" enctype="multipart/form-data">{% csrf_token %}
 				{{form}}
-
+   						<input type="submit" value="Convert">
 					<h3>OR</h3>
 
 						<div id="filedrag">drag and drop files here</div>
@@ -37,6 +37,7 @@
 			</div>
 		</div>
 		<div class="clearfix"></div>
+		<p>{{data}}
 		<script src="{% static 'js/filedrag.js' %}"></script>
 
 
@@ -46,7 +47,7 @@
 	<p> © 2016 File Upload widget. All Rights Reserved | Design by  <a href="http://w3layouts.com/"> W3layouts</a></p>
 </div>
 
-<script type="text/javascript" src="{% static 'js/jquery.min.js' %}"></script>
+
 
 </div>
 </body>
