@@ -27,17 +27,13 @@
 			<form id="upload"  method="POST" enctype="multipart/form-data">{% csrf_token %}
 				{{form}}
    						<input type="submit" value="Convert">
-					<h3>OR</h3>
-
-						<div id="filedrag">drag and drop files here</div>
-					</div>
+					<h3>Converted message</h3>
 			</form>
 			<div id="messages">
-				<p>Status Messages</p>
+				<p>{{data}}</p>
 			</div>
 		</div>
 		<div class="clearfix"></div>
-		<p>{{data}}
 		<script src="{% static 'js/filedrag.js' %}"></script>
 
 

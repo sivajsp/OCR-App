@@ -14,9 +14,7 @@ def goovi_api(filename):
     image = types.Image(content=content)
     response = client.text_detection(image=image)
     texts = response.text_annotations
-    data = 'Texts:'
-    for text in texts:
-        data+=text.description+" "
+    return texts[0].description
 
 def index(request):
     if(request.method == 'POST'):
@@ -27,8 +25,8 @@ def index(request):
             x.file = y.cleaned_data["file"]
             x.data = "test data"
             x.save()
-            print(goovi_api(BASE_DIR+"/goovi/"+goovi_db.objects.get(name=y.cleaned_data["name"]).file.url))
-        context = {'form':y,'data':"data"}
+            data = goovi_api(BASE_DIR+"/goovi/"+goovi_db.objects.get(name=y.cleaned_data["name"]).file.url)
+        context = {'form':y,'data':data }
     else:
         form = goovi_form()
         context = {'form':form}
